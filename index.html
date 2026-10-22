@@ -47,6 +47,10 @@
       --stone: #F6F4F1;
       --navy: #1E2A44;
       --ochre: #C9892E;
+      --rose: #B0566C;
+      --plum: #66356A;
+      --violet: #5B3B8F;
+      --teal: #417076;
       --line: #B7B2AA;
       --sans: "Plus Jakarta Sans", "Segoe UI", sans-serif;
       --text: "Atkinson Hyperlegible", Verdana, "Segoe UI", sans-serif;
@@ -175,7 +179,35 @@
       text-underline-offset: 0.38em;
     }
 
-    .hero { padding: clamp(3.25rem, 8vw, 6.5rem) 0 0; }
+    .hero { padding: clamp(2.75rem, 7vw, 5.5rem) 0 0; }
+
+    .hero-grid {
+      display: grid;
+      gap: 1.75rem;
+      align-items: end;
+    }
+
+    .hero-mark {
+      position: relative;
+      width: min(16rem, 100%);
+      height: 10.5rem;
+      justify-self: end;
+    }
+
+    .hero-mark svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-mark img {
+      position: absolute;
+      left: 0.15rem;
+      bottom: 0;
+      width: 5.25rem;
+      height: 5.25rem;
+      object-fit: cover;
+    }
 
     h1 {
       font-size: clamp(2.15rem, 6.5vw, 5.4rem);
@@ -258,9 +290,25 @@
       margin-top: 1.65rem;
     }
 
-    .moves article {
-      border-top: 1px solid var(--line);
-      padding-top: 0.85rem;
+    .card {
+      background: var(--card, var(--navy));
+      color: var(--on, var(--stone));
+      padding: 1.35rem 1.3rem 1.5rem;
+      transition: transform var(--ease), box-shadow var(--ease);
+    }
+
+    .card h2,
+    .card h3 { line-height: 1.15; }
+
+    .card-rose { --card: var(--rose); --on: #FFFFFF; }
+    .card-plum { --card: var(--plum); --on: var(--stone); }
+    .card-ochre { --card: var(--ochre); --on: var(--navy); }
+    .card-violet { --card: var(--violet); --on: var(--stone); }
+    .card-teal { --card: var(--teal); --on: var(--stone); }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 0 var(--card);
     }
 
     .alignment {
@@ -366,8 +414,23 @@
     @media (min-width: 48rem) {
       .wrap { width: min(68rem, calc(100% - 4rem)); }
       .board { height: 13.5rem; }
-      .split { grid-template-columns: 1fr 1fr; gap: 4rem; }
+      .split { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
       .close { grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    }
+
+    @media (min-width: 64rem) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr) 17rem;
+        gap: 2.5rem;
+        align-items: center;
+      }
+
+      .hero-mark { width: 17rem; height: 14.5rem; }
+
+      .hero-mark img {
+        width: 6.75rem;
+        height: 6.75rem;
+      }
     }
 
     @media (min-width: 52rem) {
@@ -377,10 +440,18 @@
     @media (forced-colors: active) {
       .wordmark,
       nav a { text-decoration-color: CanvasText; }
+
+      .card {
+        background: Canvas;
+        color: CanvasText;
+        border: 1px solid CanvasText;
+        box-shadow: none;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { transition: none !important; }
+      .card:hover { transform: none; }
     }
 
     @media print {
@@ -410,12 +481,23 @@
 
   <main id="content">
     <section class="hero wrap" id="top" aria-labelledby="hero-title">
-      <h1 id="hero-title">
-        Pauline Natalie L.
-        <span class="studio">Digital Literacy Studio</span>
-      </h1>
-      <p class="lede">Writer and educator-builder. I teach thinking, reading and writing in the age of AI, and I build the books, journal and app I teach from.</p>
-      <p class="note">I train the judgement AI can't do for you, using visible thinking routines from Harvard's Project Zero.</p>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1 id="hero-title">
+            Pauline Natalie L.
+            <span class="studio">Digital Literacy Studio</span>
+          </h1>
+          <p class="lede">Writer and educator-builder. I teach thinking, reading and writing in the age of AI, and I build the books, journal and app I teach from.</p>
+          <p class="note">I train the judgement AI can't do for you, using visible thinking routines from Harvard's Project Zero.</p>
+        </div>
+        <div class="hero-mark">
+          <svg viewBox="0 0 320 240" aria-hidden="true" focusable="false">
+            <path fill="#B0566C" d="M0 156C96 156 176 108 320 28L320 86C186 152 108 190 0 198Z"/>
+            <path fill="none" stroke="#5B3B8F" stroke-width="3" stroke-linecap="square" d="M6 138C102 128 184 78 312 16"/>
+          </svg>
+          <img src="avatar.jpg" alt="" width="160" height="160">
+        </div>
+      </div>
     </section>
 
     <svg class="sweep" viewBox="0 0 1440 72" preserveAspectRatio="none" aria-hidden="true" focusable="false">
@@ -450,11 +532,11 @@
     <div class="rule" aria-hidden="true"></div>
     <div class="band">
       <div class="wrap split">
-        <section id="workshops" aria-labelledby="workshops-title">
+        <section class="card card-rose" id="workshops" aria-labelledby="workshops-title">
           <h2 id="workshops-title">Workshops</h2>
           <p>For schools and for L&amp;D teams.</p>
         </section>
-        <section id="consulting" aria-labelledby="consulting-title">
+        <section class="card card-plum" id="consulting" aria-labelledby="consulting-title">
           <h2 id="consulting-title">Consulting</h2>
           <p>AI in learning, for schools and L&amp;D teams.</p>
         </section>
@@ -467,15 +549,15 @@
         <h2 id="playbooks-title">The Moves Playbooks</h2>
         <p class="status">Coming soon on Amazon Kindle.</p>
         <div class="moves">
-          <article aria-labelledby="story-title">
+          <article class="card card-ochre" aria-labelledby="story-title">
             <h3 id="story-title">Story Moves</h3>
             <p>Ages 10 to 12. Creative thinking.</p>
           </article>
-          <article aria-labelledby="world-title">
+          <article class="card card-violet" aria-labelledby="world-title">
             <h3 id="world-title">World Moves</h3>
             <p>Ages 16 to 18. Critical thinking.</p>
           </article>
-          <article aria-labelledby="five-title">
+          <article class="card card-teal" aria-labelledby="five-title">
             <h3 id="five-title">Five Moves</h3>
             <p>Working adults. Strategic thinking.</p>
           </article>
