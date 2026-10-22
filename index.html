@@ -453,7 +453,7 @@
       font-size: 1rem;
       letter-spacing: -0.03em;
       min-height: 44px;
-      min-width: 5.75rem;
+      min-width: 6.4rem;
       padding: 0 1.15rem;
       cursor: pointer;
     }
@@ -529,6 +529,86 @@
 
     .chart-body { position: relative; }
 
+    .year-mark {
+      position: absolute;
+      z-index: 0;
+      top: 46%;
+      left: calc(var(--name) + var(--gap));
+      width: calc(100% - var(--name) - var(--gap));
+      margin: 0;
+      transform: translateY(-50%);
+      font-family: var(--sans);
+      font-weight: 800;
+      font-size: clamp(3.8rem, 13vw, 10.5rem);
+      letter-spacing: -0.07em;
+      line-height: 0.8;
+      text-align: center;
+      color: var(--navy);
+      opacity: 0.16;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .year-mark.is-tick {
+      animation: year-tick 340ms cubic-bezier(0.22, 1.4, 0.36, 1);
+    }
+
+    @keyframes year-tick {
+      0% { transform: translateY(-40%) scale(0.9); opacity: 0.08; }
+      55% { transform: translateY(-56%) scale(1.07); opacity: 0.24; }
+      100% { transform: translateY(-50%) scale(1); opacity: 0.16; }
+    }
+
+    .caption {
+      max-width: 38rem;
+      margin: 0.85rem 0 0;
+      padding: 0.65rem 0.85rem 0.75rem;
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--rose);
+      background: var(--stone);
+      color: var(--navy);
+      box-shadow: 0 10px 28px rgba(30, 42, 68, 0.08);
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: -0.03em;
+      line-height: 1.35;
+      transform-origin: left center;
+    }
+
+    .caption.is-on { animation: pop-in 340ms cubic-bezier(0.22, 1.45, 0.36, 1) both; }
+    .caption.is-out { animation: pop-out 240ms ease forwards; }
+
+    @keyframes pop-in {
+      from { opacity: 0; transform: translateY(12px) scale(0.94); }
+      62% { transform: translateY(-2px) scale(1.02); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @keyframes pop-out {
+      to { opacity: 0; transform: translateY(8px) scale(0.98); }
+    }
+
+    .trail {
+      position: absolute;
+      z-index: 0;
+      top: 50%;
+      width: 0;
+      height: 0;
+      pointer-events: none;
+    }
+
+    .pulse {
+      position: absolute;
+      z-index: 2;
+      left: 0;
+      top: 0;
+      width: 26px;
+      height: 26px;
+      overflow: visible;
+      pointer-events: none;
+    }
+
     .guides {
       position: absolute;
       z-index: 0;
@@ -562,14 +642,12 @@
 
     .mover {
       position: absolute;
+      z-index: 1;
       top: 50%;
       left: 16%;
       width: 0;
       height: 0;
-      transition: left 720ms cubic-bezier(0.22, 1, 0.36, 1);
     }
-
-    .chart.is-scrub .mover { transition: none; }
 
     .mover[hidden] { display: none; }
 
@@ -976,7 +1054,7 @@
 
           <div class="story-plot">
             <div class="player">
-              <button class="play" type="button" id="story-play" aria-pressed="false" aria-controls="story-chart">Play</button>
+              <button class="play" type="button" id="story-play" aria-pressed="false" aria-controls="story-chart">Replay</button>
               <div class="slider">
                 <span class="yr-end" aria-hidden="true">2008</span>
                 <input id="story-year" type="range" min="2008" max="2026" step="1" value="2008" aria-label="Year" aria-valuetext="2008">
@@ -992,6 +1070,7 @@
                 <span class="at at-banned"><i class="swatch swatch-banned"></i>Banned for most workers</span>
               </div>
               <div class="chart-body">
+                <p class="year-mark" id="year-mark" aria-hidden="true">2008</p>
                 <svg class="guides" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
                   <line x1="16" y1="0" x2="16" y2="100" stroke="#B7B2AA" stroke-width="1.25" vector-effect="non-scaling-stroke"/>
                   <line x1="50" y1="0" x2="50" y2="100" stroke="#C9892E" stroke-width="1.75" vector-effect="non-scaling-stroke"/>
@@ -1056,6 +1135,8 @@
                   </div>
                 </div>
               </div>
+
+              <p class="caption" id="story-caption" hidden></p>
 
               <div class="beats">
                 <p class="beat" id="beat-us" hidden></p>
@@ -1184,16 +1265,30 @@
       var beatUs = document.getElementById("beat-us");
       var beatUk = document.getElementById("beat-uk");
       var beatSg = document.getElementById("beat-sg");
+      var mark = document.getElementById("year-mark");
+      var caption = document.getElementById("story-caption");
       if (!chart || !playBtn || !slider) return;
 
-      var POS = { case: "16%", limits: "50%", banned: "84%" };
+      var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var LANE = { case: 16, limits: 50, banned: 84 };
       var WORD = {
         case: "Courts decide case by case",
         limits: "Limits on duration or pay",
         banned: "Banned for most workers"
       };
-      var timer = null;
+      var CAPTION = {
+        2008: "Oregon, 2008: bans non-competes for hourly workers.",
+        2023: "United Kingdom: a 3 month cap was proposed in 2023 and was not passed.",
+        2024: "United States federal: an FTC rule in April 2024 would ban non-competes for most workers.",
+        2025: "United States federal: a court set the rule aside and the FTC dropped its appeal in September 2025."
+      };
+      var runId = 0;
       var year = 2008;
+      var playing = false;
+      var playedOnce = false;
+      var userTookOver = false;
+      var capTimer = 0;
+      var ghostWas = false;
 
       function lane(id, y) {
         if (id === "oregon" || id === "germany") return "limits";
@@ -1202,39 +1297,205 @@
         return "case";
       }
 
-      function render(y, announce) {
+      function holdFor(y) {
+        if (y === 2008) return 1000;
+        if (y === 2023) return 1450;
+        if (y === 2024 || y === 2025) return 1550;
+        if (y === 2026) return 800;
+        return 520;
+      }
+
+      function clearMotion() {
+        chart.querySelectorAll(".trail, .pulse").forEach(function (node) { node.remove(); });
+        chart.querySelectorAll(".mover, .pip").forEach(function (node) {
+          node.getAnimations().forEach(function (anim) { anim.cancel(); });
+        });
+      }
+
+      function hideCaption() {
+        window.clearTimeout(capTimer);
+        if (!caption) return;
+        caption.classList.remove("is-on", "is-out");
+        caption.hidden = true;
+        caption.textContent = "";
+      }
+
+      function showCaption(text, life) {
+        if (!caption) return;
+        window.clearTimeout(capTimer);
+        caption.hidden = false;
+        caption.textContent = text;
+        caption.classList.remove("is-out");
+        caption.classList.remove("is-on");
+        if (!reduce) {
+          void caption.offsetWidth;
+          caption.classList.add("is-on");
+        }
+        capTimer = window.setTimeout(function () {
+          if (reduce) {
+            caption.hidden = true;
+            return;
+          }
+          caption.classList.remove("is-on");
+          caption.classList.add("is-out");
+          window.setTimeout(function () {
+            if (caption.classList.contains("is-out")) caption.hidden = true;
+          }, 240);
+        }, Math.max(420, life - 280));
+      }
+
+      function tickYear(y, animate) {
+        if (!mark) return;
+        mark.textContent = String(y);
+        if (!animate || reduce) return;
+        mark.classList.remove("is-tick");
+        void mark.offsetWidth;
+        mark.classList.add("is-tick");
+      }
+
+      function spawnTrail(track, pip, spot, i) {
+        var trail = document.createElement("span");
+        trail.className = "trail";
+        trail.style.left = spot + "%";
+        trail.setAttribute("aria-hidden", "true");
+        trail.appendChild(pip.cloneNode(true));
+        track.appendChild(trail);
+        trail.animate([
+          { opacity: 0.55 - i * 0.06 },
+          { opacity: 0 }
+        ], { duration: 760, delay: i * 28, easing: "ease-out", fill: "forwards" }).onfinish = function () {
+          trail.remove();
+        };
+      }
+
+      function dropTrail(track, pip, fromN, toN) {
+        if (reduce || fromN === toN) return;
+        var steps = 6;
+        for (var i = 0; i < steps; i++) {
+          spawnTrail(track, pip, fromN + (toN - fromN) * (i / steps), i);
+        }
+      }
+
+      function pulse(mover) {
+        if (reduce) return;
+        var ring = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        ring.setAttribute("class", "pulse");
+        ring.setAttribute("viewBox", "0 0 32 32");
+        ring.setAttribute("aria-hidden", "true");
+        var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        circle.setAttribute("cx", "16");
+        circle.setAttribute("cy", "16");
+        circle.setAttribute("r", "12");
+        circle.setAttribute("fill", "none");
+        circle.setAttribute("stroke", "#B0566C");
+        circle.setAttribute("stroke-width", "2");
+        ring.appendChild(circle);
+        mover.appendChild(ring);
+        ring.animate([
+          { transform: "translate(-50%, -50%) scale(0.65)", opacity: 0.95 },
+          { transform: "translate(-50%, -50%) scale(2.2)", opacity: 0 }
+        ], { duration: 640, easing: "cubic-bezier(0.16, 0.84, 0.32, 1)", fill: "forwards" }).onfinish = function () {
+          ring.remove();
+        };
+      }
+
+      function bounce(pip) {
+        if (reduce || !pip) return;
+        pip.animate([
+          { transform: "translate(-50%, -50%) scale(1)", offset: 0 },
+          { transform: "translate(-50%, -50%) scale(0.78)", offset: 0.16 },
+          { transform: "translate(-50%, -50%) scale(1.24)", offset: 0.48 },
+          { transform: "translate(-50%, -50%) scale(0.94)", offset: 0.74 },
+          { transform: "translate(-50%, -50%) scale(1.06)", offset: 0.88 },
+          { transform: "translate(-50%, -50%) scale(1)", offset: 1 }
+        ], { duration: 620, easing: "linear" });
+      }
+
+      function springTo(mover, fromN, toN) {
+        mover.getAnimations().forEach(function (anim) { anim.cancel(); });
+        mover.style.left = toN + "%";
+        if (reduce) return;
+        var dir = toN > fromN ? 1 : -1;
+        var back = Math.max(6, Math.min(94, fromN - dir * 3.4));
+        var over = Math.max(6, Math.min(94, toN + dir * 5.2));
+        mover.animate([
+          { left: fromN + "%", offset: 0 },
+          { left: back + "%", offset: 0.14 },
+          { left: over + "%", offset: 0.66 },
+          { left: toN + "%", offset: 1 }
+        ], { duration: 500, easing: "cubic-bezier(0.2, 0.9, 0.24, 1)" });
+      }
+
+      function placeMover(mover, toN, animate) {
+        var fromN = parseFloat(mover.style.left);
+        var pip = mover.querySelector(".pip");
+        var track = mover.parentNode;
+        var changed = !isNaN(fromN) && Math.abs(fromN - toN) >= 0.5;
+        if (animate && changed) {
+          dropTrail(track, pip, fromN, toN);
+          springTo(mover, fromN, toN);
+          bounce(pip);
+          pulse(mover);
+        } else {
+          mover.getAnimations().forEach(function (anim) { anim.cancel(); });
+          mover.style.left = toN + "%";
+        }
+        return changed;
+      }
+
+      function summary(y) {
+        var bits = ["Year " + y];
+        bits.push("Oregon, " + WORD.limits);
+        bits.push("California, " + WORD.banned);
+        bits.push("United States federal, " + WORD[lane("us", y)]);
+        bits.push("United Kingdom, " + WORD.case);
+        if (y >= 2023) bits.push("United Kingdom proposal at " + WORD.limits + ", not passed");
+        bits.push("Germany, " + WORD.limits);
+        bits.push("Singapore, " + WORD.case);
+        if (y >= 2023) bits.push("Singapore: MOM says avoid for lower-paying jobs. Guidelines not yet issued by March 2026");
+        return bits.join(". ") + ".";
+      }
+
+      function render(y, announce, animate) {
         year = y;
         slider.value = String(y);
         slider.setAttribute("aria-valuetext", String(y));
         readout.textContent = String(y);
+        tickYear(y, animate);
 
         chart.querySelectorAll(".row").forEach(function (row) {
           var id = row.getAttribute("data-place");
           var key = lane(id, y);
           var mover = row.querySelector(".mover-main");
           var where = row.querySelector(".where");
-          if (mover) mover.style.left = POS[key];
+          if (mover) placeMover(mover, LANE[key], animate);
           if (where) where.textContent = ". " + WORD[key] + ".";
         });
 
         var ghost = chart.querySelector(".mover-ghost");
         var ukWhere = chart.querySelector('[data-place="uk"] .where');
-        if (y >= 2023) {
+        var ghostOn = y >= 2023;
+        if (ghostOn) {
           ghost.hidden = false;
-          ghost.style.left = POS.limits;
+          ghost.style.left = LANE.limits + "%";
+          if (animate && !ghostWas) {
+            bounce(ghost.querySelector(".pip"));
+            pulse(ghost);
+          }
           if (ukWhere) {
             ukWhere.textContent = ". Courts decide case by case. A 3 month cap was proposed in 2023 and was not passed.";
           }
-        } else {
+        } else if (ghost) {
           ghost.hidden = true;
         }
+        ghostWas = ghostOn;
 
         if (y === 2024) {
           beatUs.hidden = false;
-          beatUs.textContent = "United States federal: an FTC rule in April 2024 would ban non-competes for most workers.";
+          beatUs.textContent = CAPTION[2024];
         } else if (y >= 2025) {
           beatUs.hidden = false;
-          beatUs.textContent = "United States federal: a court set the rule aside and the FTC dropped its appeal in September 2025.";
+          beatUs.textContent = CAPTION[2025];
         } else {
           beatUs.hidden = true;
           beatUs.textContent = "";
@@ -1242,7 +1503,7 @@
 
         if (y >= 2023) {
           beatUk.hidden = false;
-          beatUk.textContent = "United Kingdom: a 3 month cap was proposed in 2023 and was not passed.";
+          beatUk.textContent = CAPTION[2023];
           beatSg.hidden = false;
           beatSg.textContent = "Singapore, 2023: MOM says avoid these clauses for lower-paying jobs. Guidelines were promised and had not been issued by March 2026.";
         } else {
@@ -1252,65 +1513,81 @@
           beatSg.textContent = "";
         }
 
-        if (announce) {
-          var bits = ["Year " + y];
-          bits.push("Oregon, " + WORD.limits);
-          bits.push("California, " + WORD.banned);
-          bits.push("United States federal, " + WORD[lane("us", y)]);
-          bits.push("United Kingdom, " + WORD.case);
-          if (y >= 2023) bits.push("United Kingdom proposal at " + WORD.limits + ", not passed");
-          bits.push("Germany, " + WORD.limits);
-          bits.push("Singapore, " + WORD.case);
-          if (y >= 2023) bits.push("Singapore: MOM says avoid for lower-paying jobs. Guidelines not yet issued by March 2026");
-          live.textContent = bits.join(". ") + ".";
+        if (playing && CAPTION[y]) showCaption(CAPTION[y], holdFor(y));
+        else if (!playing) hideCaption();
+
+        if (announce && (CAPTION[y] || y === 2026 || !animate)) {
+          live.textContent = CAPTION[y] ? ("Year " + y + ". " + CAPTION[y]) : summary(y);
         }
       }
 
       function stop() {
-        if (timer) {
-          clearInterval(timer);
-          timer = null;
-        }
-        playBtn.textContent = "Play";
+        runId += 1;
+        playing = false;
         playBtn.setAttribute("aria-pressed", "false");
       }
 
-      function tick() {
-        if (year >= 2026) {
-          stop();
-          return;
+      function playFrom(start) {
+        var run = ++runId;
+        playing = true;
+        playBtn.setAttribute("aria-pressed", "true");
+        clearMotion();
+        ghostWas = false;
+        render(start, true, !reduce);
+        function step() {
+          if (run !== runId) return;
+          window.setTimeout(function () {
+            if (run !== runId) return;
+            if (year >= 2026) {
+              stop();
+              return;
+            }
+            render(year + 1, true, !reduce);
+            step();
+          }, holdFor(year));
         }
-        render(year + 1, true);
-        if (year >= 2026) stop();
+        step();
       }
 
       playBtn.addEventListener("click", function () {
-        if (timer) {
-          stop();
-          return;
-        }
-        if (year >= 2026) render(2008, true);
-        playBtn.textContent = "Pause";
-        playBtn.setAttribute("aria-pressed", "true");
-        timer = setInterval(tick, 780);
+        userTookOver = true;
+        stop();
+        chart.classList.remove("is-scrub");
+        playFrom(2008);
       });
 
       slider.addEventListener("input", function () {
+        userTookOver = true;
         stop();
+        clearMotion();
+        hideCaption();
         chart.classList.add("is-scrub");
-        render(Number(slider.value), false);
+        render(Number(slider.value), false, false);
       });
 
       slider.addEventListener("change", function () {
         chart.classList.remove("is-scrub");
-        render(Number(slider.value), true);
+        render(Number(slider.value), true, false);
       });
 
       document.addEventListener("visibilitychange", function () {
         if (document.hidden) stop();
       });
 
-      render(2008, false);
+      render(2008, false, false);
+
+      if (!reduce && "IntersectionObserver" in window) {
+        var plot = document.querySelector(".story-plot") || chart;
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting || playedOnce || userTookOver || playing) return;
+            playedOnce = true;
+            io.disconnect();
+            playFrom(2008);
+          });
+        }, { threshold: 0.4 });
+        io.observe(plot);
+      }
     })();
   </script>
 </body>
