@@ -21,7 +21,12 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital@0;1&family=Plus+Jakarta+Sans:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital@0;1&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("motion");
+    }
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -183,36 +188,83 @@
 
     .hero-grid {
       display: grid;
-      gap: 1.75rem;
-      align-items: end;
+      grid-template-columns: minmax(0, 1fr) 6.25rem;
+      column-gap: 0.75rem;
+      align-items: start;
     }
 
     .hero-mark {
       position: relative;
-      width: min(16rem, 100%);
-      height: 10.5rem;
+      grid-column: 2;
+      grid-row: 1;
+      width: 6.25rem;
+      height: 8.5rem;
       justify-self: end;
+      overflow: hidden;
     }
 
-    .hero-mark svg {
-      display: block;
+    .mega {
+      position: absolute;
+      z-index: 2;
+      left: -0.02em;
+      top: 0.15em;
+      margin: 0;
+      color: transparent;
+      font-family: var(--sans);
+      font-weight: 800;
+      font-size: 6.5rem;
+      line-height: 0.72;
+      letter-spacing: -0.08em;
+      -webkit-text-stroke: 2px var(--navy);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .ribbon {
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      bottom: 0;
       width: 100%;
-      height: 100%;
+      height: 72%;
     }
 
     .hero-mark img {
       position: absolute;
-      left: 0.15rem;
-      bottom: 0;
-      width: 5.25rem;
-      height: 5.25rem;
+      z-index: 3;
+      top: 0;
+      right: 0;
+      width: 5.35rem;
+      height: 5.35rem;
       object-fit: cover;
+      object-position: center 12%;
     }
 
+    .speed {
+      position: relative;
+      height: 0.95rem;
+      margin-top: 1.2rem;
+    }
+
+    .speed span {
+      position: absolute;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      transform: scaleX(0.46);
+      transform-origin: left center;
+    }
+
+    .speed-ochre { top: 0; background: var(--ochre); }
+    .speed-rose { top: 7px; width: 72%; background: var(--rose); }
+
+    .hero-text { grid-column: 1 / -1; }
+
     h1 {
-      font-size: clamp(2.15rem, 6.5vw, 5.4rem);
-      letter-spacing: -0.05em;
-      line-height: 0.94;
+      font-weight: 800;
+      font-size: clamp(2.45rem, 7.6vw, 6.5rem);
+      letter-spacing: -0.068em;
+      line-height: 0.84;
     }
 
     .studio {
@@ -291,10 +343,24 @@
     }
 
     .card {
+      position: relative;
       background: var(--card, var(--navy));
       color: var(--on, var(--stone));
       padding: 1.35rem 1.3rem 1.5rem;
-      transition: transform var(--ease), box-shadow var(--ease);
+      transform-origin: left center;
+      transition: transform var(--ease);
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 1.6rem;
+      height: 5px;
+      background: var(--card);
+      transform: translateY(100%);
+      transition: width var(--ease);
     }
 
     .card h2,
@@ -307,8 +373,23 @@
     .card-teal { --card: var(--teal); --on: var(--stone); }
 
     .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 0 var(--card);
+      transform: translate3d(0, -6px, 0) skewX(-3deg);
+    }
+
+    .card:hover::after { width: 100%; }
+
+    .board { overflow: visible; }
+
+    .stone {
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    .five-line {
+      fill: none;
+      stroke: var(--ochre);
+      stroke-width: 4;
+      stroke-linecap: square;
     }
 
     .alignment {
@@ -418,19 +499,104 @@
       .close { grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
     }
 
+    @media (min-width: 40rem) {
+      .hero-grid { grid-template-columns: minmax(0, 1fr) 8.5rem; }
+      .hero-mark { width: 8.5rem; height: 11rem; }
+      .hero-mark img { width: 6.75rem; height: 6.75rem; }
+      .mega { font-size: 8rem; }
+    }
+
     @media (min-width: 64rem) {
       .hero-grid {
-        grid-template-columns: minmax(0, 1fr) 17rem;
-        gap: 2.5rem;
-        align-items: center;
+        grid-template-columns: minmax(0, 1fr) 20rem;
+        column-gap: 2.5rem;
       }
 
-      .hero-mark { width: 17rem; height: 14.5rem; }
+      .hero-text { grid-column: 1; }
+
+      .hero-mark {
+        grid-row: 1 / span 2;
+        width: 20rem;
+        height: 16.5rem;
+      }
+
+      .mega { font-size: 13rem; }
 
       .hero-mark img {
-        width: 6.75rem;
-        height: 6.75rem;
+        width: 9.5rem;
+        height: 9.5rem;
       }
+    }
+
+    .motion .speed span {
+      transform: scaleX(0);
+      animation: speed 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .motion .speed-rose { animation-delay: 0.1s; }
+
+    .motion .hero-copy h1 {
+      animation: glide 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
+    }
+
+    .motion .hero-text .lede {
+      animation: glide 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.46s both;
+    }
+
+    .motion .hero-text .note {
+      animation: glide 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+    }
+
+    .motion .stone {
+      animation: stone-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .motion .stone:nth-child(1) { animation-delay: 0.15s; }
+    .motion .stone:nth-child(2) { animation-delay: 0.32s; }
+    .motion .stone:nth-child(3) { animation-delay: 0.49s; }
+    .motion .stone:nth-child(4) { animation-delay: 0.66s; }
+    .motion .stone:nth-child(5) { animation-delay: 0.83s; }
+
+    .motion .five-line {
+      stroke-dasharray: 400;
+      stroke-dashoffset: 400;
+      animation: draw-line 0.5s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
+    }
+
+    .motion .card {
+      opacity: 0;
+      transform: translate3d(-28px, 36px, 0);
+    }
+
+    .motion .card.is-in {
+      opacity: 1;
+      transform: none;
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      transition-delay: var(--d, 0ms);
+    }
+
+    .motion .card.is-in:hover {
+      transform: translate3d(0, -6px, 0) skewX(-3deg);
+    }
+
+    @keyframes speed {
+      0% { transform: scaleX(0); }
+      62% { transform: scaleX(1); }
+      100% { transform: scaleX(0.46); }
+    }
+
+    @keyframes glide {
+      from { opacity: 0; transform: translate3d(-40px, 0, 0) skewX(-8deg); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @keyframes stone-in {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @keyframes draw-line {
+      to { stroke-dashoffset: 0; }
     }
 
     @media (min-width: 52rem) {
@@ -450,8 +616,14 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { transition: none !important; }
-      .card:hover { transform: none; }
+      *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+      .card:hover,
+      .motion .card,
+      .motion .card.is-in,
+      .motion .card.is-in:hover { transform: none; opacity: 1; }
     }
 
     @media print {
@@ -487,15 +659,22 @@
             Pauline Natalie L.
             <span class="studio">Digital Literacy Studio</span>
           </h1>
-          <p class="lede">Writer and educator-builder. I teach thinking, reading and writing in the age of AI, and I build the books, journal and app I teach from.</p>
-          <p class="note">I train the judgement AI can't do for you, using visible thinking routines from Harvard's Project Zero.</p>
+          <div class="speed" aria-hidden="true">
+            <span class="speed-ochre"></span>
+            <span class="speed-rose"></span>
+          </div>
         </div>
         <div class="hero-mark">
-          <svg viewBox="0 0 320 240" aria-hidden="true" focusable="false">
-            <path fill="#B0566C" d="M0 156C96 156 176 108 320 28L320 86C186 152 108 190 0 198Z"/>
-            <path fill="none" stroke="#5B3B8F" stroke-width="3" stroke-linecap="square" d="M6 138C102 128 184 78 312 16"/>
+          <p class="mega" aria-hidden="true">5</p>
+          <svg class="ribbon" viewBox="0 0 320 200" aria-hidden="true" focusable="false">
+            <path fill="#B0566C" d="M0 118C90 118 160 78 320 18L320 74C170 124 96 156 0 164Z"/>
+            <path fill="none" stroke="#5B3B8F" stroke-width="3" stroke-linecap="square" d="M4 102C100 96 170 58 316 8"/>
           </svg>
-          <img src="avatar.jpg" alt="" width="160" height="160">
+          <img src="assets/avatar.png" alt="" width="400" height="400">
+        </div>
+        <div class="hero-text">
+          <p class="lede">Writer and educator-builder. I teach thinking, reading and writing in the age of AI, and I build the books, journal and app I teach from.</p>
+          <p class="note">I train the judgement AI can't do for you, using visible thinking routines from Harvard's Project Zero.</p>
         </div>
       </div>
     </section>
@@ -506,15 +685,14 @@
 
     <svg class="board" viewBox="0 0 3600 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
       <path fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="square" shape-rendering="crispEdges" d="M0 70H3600 M0 170H3600 M0 270H3600 M0 0V340 M100 0V340 M200 0V340 M300 0V340 M400 0V340 M500 0V340 M600 0V340 M700 0V340 M800 0V340 M900 0V340 M1000 0V340 M1100 0V340 M1200 0V340 M1300 0V340 M1400 0V340 M1500 0V340 M1600 0V340 M1700 0V340 M1800 0V340 M1900 0V340 M2000 0V340 M2100 0V340 M2200 0V340 M2300 0V340 M2400 0V340 M2500 0V340 M2600 0V340 M2700 0V340 M2800 0V340 M2900 0V340 M3000 0V340 M3100 0V340 M3200 0V340 M3300 0V340 M3400 0V340 M3500 0V340 M3600 0V340"/>
-      <g fill="#000" stroke="none">
-        <circle cx="1700" cy="170" r="32"/>
-        <circle cx="1900" cy="170" r="32"/>
-        <circle cx="1900" cy="270" r="32"/>
+      <g class="stones">
+        <circle class="stone" cx="1600" cy="170" r="32" fill="#000"/>
+        <circle class="stone" cx="1700" cy="170" r="30.5" fill="#fff" stroke="#000" stroke-width="3"/>
+        <circle class="stone" cx="1800" cy="170" r="32" fill="#000"/>
+        <circle class="stone" cx="1900" cy="170" r="30.5" fill="#fff" stroke="#000" stroke-width="3"/>
+        <circle class="stone" cx="2000" cy="170" r="32" fill="#000"/>
       </g>
-      <g fill="#fff" stroke="#000" stroke-width="3">
-        <circle cx="1800" cy="170" r="30.5"/>
-        <circle cx="1800" cy="70" r="30.5"/>
-      </g>
+      <line class="five-line" x1="1600" y1="170" x2="2000" y2="170"/>
     </svg>
 
     <div class="wrap cred">
@@ -614,11 +792,46 @@
   <footer>
     <div class="wrap foot">
       <div class="who">
-        <img src="avatar.jpg" alt="" width="40" height="40">
+        <img src="assets/avatar.png" alt="" width="40" height="40">
         <p>Pauline Natalie L. · Digital Literacy Studio</p>
       </div>
       <p><a href="https://paulynnat.github.io/privacy">Privacy (Five in a Row app)</a></p>
     </div>
   </footer>
+  <script>
+    (function () {
+      if (!document.documentElement.classList.contains("motion")) return;
+
+      var cards = document.querySelectorAll(".card");
+      if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-in");
+            io.unobserve(entry.target);
+          });
+        }, { threshold: 0.2, rootMargin: "0px 0px -6% 0px" });
+        cards.forEach(function (card, i) {
+          card.style.setProperty("--d", (i % 3) * 90 + "ms");
+          io.observe(card);
+        });
+      } else {
+        cards.forEach(function (card) { card.classList.add("is-in"); });
+      }
+
+      var ribbon = document.querySelector(".ribbon");
+      if (!ribbon) return;
+      var ticking = false;
+      window.addEventListener("scroll", function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () {
+          var y = window.scrollY || 0;
+          ribbon.style.transform = "translate3d(0," + Math.round(y * -0.08) + "px,0)";
+          ticking = false;
+        });
+      }, { passive: true });
+    })();
+  </script>
 </body>
 </html>
