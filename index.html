@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pauline Natalie L. · Digital Literacy Studio</title>
+  <meta name="description" content="Writer and educator-builder. I teach thinking, reading and writing in the age of AI, and I build the books, journal and app I teach from.">
+  <meta name="author" content="Pauline Natalie L.">
+  <meta name="theme-color" content="#F6F4F1">
+  <meta name="color-scheme" content="light">
+  <link rel="canonical" href="https://paulynnat.github.io/">
+  <meta property="og:title" content="Pauline Natalie L. · Digital Literacy Studio">
+  <meta property="og:description" content="Writer and educator-builder. I teach thinking, reading and writing in the age of AI, and I build the books, journal and app I teach from.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://paulynnat.github.io/">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Digital Literacy Studio">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Pauline Natalie L. · Digital Literacy Studio">
+  <meta name="twitter:description" content="Writer and educator-builder. I teach thinking, reading and writing in the age of AI, and I build the books, journal and app I teach from.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital@0;1&family=Plus+Jakarta+Sans:wght@500;600&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Pauline Natalie L. · Digital Literacy Studio",
+    "url": "https://paulynnat.github.io/",
+    "description": "Writer and educator-builder. I teach thinking, reading and writing in the age of AI, and I build the books, journal and app I teach from.",
+    "inLanguage": "en-GB",
+    "author": {
+      "@type": "Person",
+      "name": "Pauline Natalie L.",
+      "url": "https://paulynnat.github.io/",
+      "sameAs": [
+        "https://www.linkedin.com/in/paulinenatalie",
+        "https://medium.com/@paulynnat",
+        "https://github.com/paulynnat"
+      ]
+    }
+  }
+  </script>
+  <style>
+    :root {
+      --stone: #F6F4F1;
+      --navy: #1E2A44;
+      --ochre: #C9892E;
+      --line: #B7B2AA;
+      --sans: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+      --text: "Atkinson Hyperlegible", Verdana, "Segoe UI", sans-serif;
+      --ease: 200ms cubic-bezier(0.22, 1, 0.36, 1);
+      color-scheme: light;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { background: var(--stone); }
+
+    body {
+      margin: 0;
+      background: var(--stone);
+      color: var(--navy);
+      font-family: var(--text);
+      font-size: 1.125rem;
+      line-height: 1.6;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, p, ul, li { margin: 0; padding: 0; }
+
+    ul { list-style: none; }
+
+    h1, h2, h3 {
+      font-family: var(--sans);
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+
+    p { text-wrap: pretty; hyphens: manual; }
+
+    a { color: var(--navy); }
+
+    a:hover { text-underline-offset: 0.32em; }
+
+    :focus-visible {
+      outline: 2px solid var(--navy);
+      outline-offset: 3px;
+    }
+
+    ::selection {
+      background: var(--navy);
+      color: var(--stone);
+    }
+
+    .skip {
+      position: absolute;
+      left: 1rem;
+      top: 0.75rem;
+      z-index: 20;
+      padding: 0.55rem 0.8rem;
+      background: var(--navy);
+      color: var(--stone);
+      text-decoration: none;
+      transform: translateY(-160%);
+    }
+
+    .skip:focus { transform: none; }
+
+    .wrap {
+      width: min(68rem, calc(100% - 2.5rem));
+      margin-inline: auto;
+    }
+
+    .site {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: var(--stone);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.15rem 1.5rem;
+      padding-block: 0.2rem;
+    }
+
+    .wordmark,
+    nav a {
+      font-family: var(--sans);
+      font-weight: 500;
+      color: var(--navy);
+      text-decoration: underline;
+      text-decoration-color: transparent;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.22em;
+      transition: text-decoration-color var(--ease), text-underline-offset var(--ease);
+    }
+
+    .wordmark {
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: -0.03em;
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.1rem 1.15rem;
+    }
+
+    nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      font-size: 0.92rem;
+      letter-spacing: -0.02em;
+    }
+
+    .wordmark:hover,
+    nav a:hover {
+      text-decoration-color: currentColor;
+      text-underline-offset: 0.38em;
+    }
+
+    .hero { padding: clamp(3.25rem, 8vw, 6.5rem) 0 0; }
+
+    h1 {
+      font-size: clamp(2.15rem, 6.5vw, 5.4rem);
+      letter-spacing: -0.05em;
+      line-height: 0.94;
+    }
+
+    .studio {
+      display: block;
+      margin-top: 0.7rem;
+      font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+    }
+
+    .lede,
+    .note,
+    .measure { max-width: 38rem; }
+
+    .lede {
+      margin-top: clamp(2.25rem, 5vw, 3.5rem);
+      font-size: clamp(1.125rem, 1.4vw, 1.3rem);
+      line-height: 1.55;
+    }
+
+    .note { margin-top: 1.15rem; }
+
+    .sweep {
+      display: block;
+      width: 100%;
+      height: 4.5rem;
+      margin-top: clamp(2.25rem, 5vw, 3.75rem);
+    }
+
+    .board {
+      display: block;
+      width: 100%;
+      height: 9.5rem;
+      margin-top: 0.25rem;
+    }
+
+    .cred { padding: clamp(1.75rem, 4vw, 2.75rem) 0 clamp(2rem, 4.5vw, 3.25rem); }
+
+    .credentials {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.98rem;
+      letter-spacing: -0.02em;
+    }
+
+    .rule {
+      height: 1px;
+      background: var(--line);
+    }
+
+    .band { padding: clamp(2.75rem, 5.5vw, 4.25rem) 0; }
+
+    h2 {
+      margin-bottom: 0.55rem;
+      font-size: clamp(1.65rem, 3vw, 2.05rem);
+    }
+
+    h3 {
+      margin-bottom: 0.35rem;
+      font-size: 1.2rem;
+      letter-spacing: -0.03em;
+    }
+
+    .status { margin-bottom: 0.15rem; }
+
+    .split {
+      display: grid;
+      gap: 2.25rem;
+    }
+
+    .moves {
+      display: grid;
+      gap: 1.35rem;
+      margin-top: 1.65rem;
+    }
+
+    .moves article {
+      border-top: 1px solid var(--line);
+      padding-top: 0.85rem;
+    }
+
+    .alignment {
+      max-width: 40rem;
+      margin-top: clamp(2rem, 4vw, 3rem);
+    }
+
+    .close {
+      display: grid;
+      gap: 2.5rem;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 1.5rem;
+      margin-top: 0.85rem;
+    }
+
+    .links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 1.125rem;
+      letter-spacing: -0.03em;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+      transition: text-underline-offset var(--ease);
+    }
+
+    .forward {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      width: fit-content;
+      min-height: 44px;
+      margin-top: 0.9rem;
+      padding-bottom: 0.12rem;
+      border-bottom: 1px solid var(--navy);
+      color: var(--navy);
+      font-family: var(--sans);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      text-decoration: none;
+      transition: gap var(--ease);
+    }
+
+    .forward svg { display: block; flex: none; }
+
+    .forward:hover { gap: 0.95rem; }
+
+    .sweep-quiet {
+      height: 3rem;
+      margin: 0;
+    }
+
+    .foot {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem 1.5rem;
+      padding: 0.35rem 0 1.75rem;
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    .who {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .who img {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      flex: none;
+    }
+
+    .foot a {
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+      transition: text-underline-offset var(--ease);
+    }
+
+    cite { font-style: italic; }
+
+    section { scroll-margin-top: 10.5rem; }
+
+    @media (min-width: 37.5rem) {
+      section { scroll-margin-top: 8rem; }
+    }
+
+    @media (min-width: 44rem) {
+      section { scroll-margin-top: 5rem; }
+    }
+
+    @media (min-width: 48rem) {
+      .wrap { width: min(68rem, calc(100% - 4rem)); }
+      .board { height: 13.5rem; }
+      .split { grid-template-columns: 1fr 1fr; gap: 4rem; }
+      .close { grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    }
+
+    @media (min-width: 52rem) {
+      .moves { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    }
+
+    @media (forced-colors: active) {
+      .wordmark,
+      nav a { text-decoration-color: CanvasText; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
+    }
+
+    @media print {
+      .site { position: static; }
+      .skip { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="site">
+    <div class="wrap bar">
+      <a class="wordmark" href="#top">Pauline Natalie L.</a>
+      <nav aria-label="Sections">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#workshops">Workshops</a></li>
+          <li><a href="#consulting">Consulting</a></li>
+          <li><a href="#playbooks">Playbooks</a></li>
+          <li><a href="#journal">Journal</a></li>
+          <li><a href="#app">App</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero wrap" id="top" aria-labelledby="hero-title">
+      <h1 id="hero-title">
+        Pauline Natalie L.
+        <span class="studio">Digital Literacy Studio</span>
+      </h1>
+      <p class="lede">Writer and educator-builder. I teach thinking, reading and writing in the age of AI, and I build the books, journal and app I teach from.</p>
+      <p class="note">I train the judgement AI can't do for you, using visible thinking routines from Harvard's Project Zero.</p>
+    </section>
+
+    <svg class="sweep" viewBox="0 0 1440 72" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path d="M0 58C480 57 820 48 1080 30C1240 18 1360 10 1440 6" fill="none" stroke="#C9892E" stroke-width="1.75" vector-effect="non-scaling-stroke" stroke-linecap="square"/>
+    </svg>
+
+    <svg class="board" viewBox="0 0 3600 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <path fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="square" shape-rendering="crispEdges" d="M0 70H3600 M0 170H3600 M0 270H3600 M0 0V340 M100 0V340 M200 0V340 M300 0V340 M400 0V340 M500 0V340 M600 0V340 M700 0V340 M800 0V340 M900 0V340 M1000 0V340 M1100 0V340 M1200 0V340 M1300 0V340 M1400 0V340 M1500 0V340 M1600 0V340 M1700 0V340 M1800 0V340 M1900 0V340 M2000 0V340 M2100 0V340 M2200 0V340 M2300 0V340 M2400 0V340 M2500 0V340 M2600 0V340 M2700 0V340 M2800 0V340 M2900 0V340 M3000 0V340 M3100 0V340 M3200 0V340 M3300 0V340 M3400 0V340 M3500 0V340 M3600 0V340"/>
+      <g fill="#000" stroke="none">
+        <circle cx="1700" cy="170" r="32"/>
+        <circle cx="1900" cy="170" r="32"/>
+        <circle cx="1900" cy="270" r="32"/>
+      </g>
+      <g fill="#fff" stroke="#000" stroke-width="3">
+        <circle cx="1800" cy="170" r="30.5"/>
+        <circle cx="1800" cy="70" r="30.5"/>
+      </g>
+    </svg>
+
+    <div class="wrap cred">
+      <p class="credentials">ACLP · ESSEC · Harvard GSE · Project Zero</p>
+    </div>
+
+    <div class="rule" aria-hidden="true"></div>
+    <section class="band" id="about" aria-labelledby="about-title">
+      <div class="wrap">
+        <h2 id="about-title">About</h2>
+        <p class="measure">My work started in the classroom. I wrote exam writing guides for Singapore students and the General Paper guide <cite>Writing the World</cite>, and I built small tools like Phonics Sonics to test how children learn to read. Building things is how I find out whether an idea really helps a learner. Digital Literacy Studio is where that work lives now.</p>
+      </div>
+    </section>
+
+    <div class="rule" aria-hidden="true"></div>
+    <div class="band">
+      <div class="wrap split">
+        <section id="workshops" aria-labelledby="workshops-title">
+          <h2 id="workshops-title">Workshops</h2>
+          <p>For schools and for L&amp;D teams.</p>
+        </section>
+        <section id="consulting" aria-labelledby="consulting-title">
+          <h2 id="consulting-title">Consulting</h2>
+          <p>AI in learning, for schools and L&amp;D teams.</p>
+        </section>
+      </div>
+    </div>
+
+    <div class="rule" aria-hidden="true"></div>
+    <section class="band" id="playbooks" aria-labelledby="playbooks-title">
+      <div class="wrap">
+        <h2 id="playbooks-title">The Moves Playbooks</h2>
+        <p class="status">Coming soon on Amazon Kindle.</p>
+        <div class="moves">
+          <article aria-labelledby="story-title">
+            <h3 id="story-title">Story Moves</h3>
+            <p>Ages 10 to 12. Creative thinking.</p>
+          </article>
+          <article aria-labelledby="world-title">
+            <h3 id="world-title">World Moves</h3>
+            <p>Ages 16 to 18. Critical thinking.</p>
+          </article>
+          <article aria-labelledby="five-title">
+            <h3 id="five-title">Five Moves</h3>
+            <p>Working adults. Strategic thinking.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="rule" aria-hidden="true"></div>
+    <div class="band">
+      <div class="wrap split">
+        <section id="journal" aria-labelledby="journal-title">
+          <h2 id="journal-title">The Moves Playbooks Journal</h2>
+          <p>One journal for Story, World and Five Moves. Coming soon.</p>
+        </section>
+        <section id="app" aria-labelledby="app-title">
+          <h2 id="app-title">Five in a Row</h2>
+          <p>An app for Android. In testing, coming soon.</p>
+        </section>
+      </div>
+      <div class="wrap">
+        <p class="alignment">Aligned with DigComp 3.0, OECD Learning Compass 2030 and PISA 2025.</p>
+      </div>
+    </div>
+
+    <div class="rule" aria-hidden="true"></div>
+    <div class="band">
+      <div class="wrap close">
+        <section id="find" aria-labelledby="find-title">
+          <h2 id="find-title">Find me online</h2>
+          <ul class="links">
+            <li><a rel="me" href="https://www.linkedin.com/in/paulinenatalie">LinkedIn</a></li>
+            <li><a rel="me" href="https://medium.com/@paulynnat">Medium</a></li>
+            <li><a rel="me" href="https://github.com/paulynnat">GitHub</a></li>
+          </ul>
+        </section>
+        <section id="contact" aria-labelledby="contact-title">
+          <h2 id="contact-title">Get in touch</h2>
+          <p class="measure">I welcome a note about workshops or consulting.</p>
+          <a class="forward" rel="me" href="https://www.linkedin.com/in/paulinenatalie">
+            Get in touch via LinkedIn
+            <svg viewBox="0 0 28 12" width="28" height="12" aria-hidden="true" focusable="false">
+              <path d="M0 6h24M18 1l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="square" stroke-linejoin="miter"/>
+            </svg>
+          </a>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <svg class="sweep sweep-quiet" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path d="M0 36C560 35 980 26 1440 8" fill="none" stroke="#B7B2AA" stroke-width="1.25" vector-effect="non-scaling-stroke" stroke-linecap="square"/>
+  </svg>
+
+  <footer>
+    <div class="wrap foot">
+      <div class="who">
+        <img src="avatar.jpg" alt="" width="40" height="40">
+        <p>Pauline Natalie L. · Digital Literacy Studio</p>
+      </div>
+      <p><a href="https://paulynnat.github.io/privacy">Privacy (Five in a Row app)</a></p>
+    </div>
+  </footer>
+</body>
+</html>
