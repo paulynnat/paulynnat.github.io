@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pauline Natalie L. · Digital Literacy Studio</title>
+  <meta name="description" content="Writer and educator-builder. I teach thinking, reading and writing in the age of AI, and I build the books, journal and app I teach from.">
+  <meta name="author" content="Pauline Natalie L.">
+  <meta name="theme-color" content="#F6F4F1">
+  <meta name="color-scheme" content="light">
+  <link rel="canonical" href="https://paulynnat.github.io/">
+  <meta property="og:title" content="Pauline Natalie L. · Digital Literacy Studio">
+  <meta property="og:description" content="Writer and educator-builder. I teach thinking, reading and writing in the age of AI, and I build the books, journal and app I teach from.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://paulynnat.github.io/">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Digital Literacy Studio">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Pauline Natalie L. · Digital Literacy Studio">
+  <meta name="twitter:description" content="Writer and educator-builder. I teach thinking, reading and writing in the age of AI, and I build the books, journal and app I teach from.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital@0;1&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("motion");
+    }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Pauline Natalie L. · Digital Literacy Studio",
+    "url": "https://paulynnat.github.io/",
+    "description": "Writer and educator-builder. I teach thinking, reading and writing in the age of AI, and I build the books, journal and app I teach from.",
+    "inLanguage": "en-GB",
+    "author": {
+      "@type": "Person",
+      "name": "Pauline Natalie L.",
+      "url": "https://paulynnat.github.io/",
+      "sameAs": [
+        "https://www.linkedin.com/in/paulinenatalie",
+        "https://medium.com/@paulynnat",
+        "https://github.com/paulynnat"
+      ]
+    }
+  }
+  </script>
+  <style>
+    :root {
+      --stone: #F6F4F1;
+      --navy: #1E2A44;
+      --ochre: #C9892E;
+      --rose: #B0566C;
+      --plum: #66356A;
+      --violet: #5B3B8F;
+      --teal: #417076;
+      --line: #B7B2AA;
+      --sans: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+      --text: "Atkinson Hyperlegible", Verdana, "Segoe UI", sans-serif;
+      --ease: 200ms cubic-bezier(0.22, 1, 0.36, 1);
+      color-scheme: light;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { background: var(--stone); }
+
+    body {
+      margin: 0;
+      background: var(--stone);
+      color: var(--navy);
+      font-family: var(--text);
+      font-size: 1.125rem;
+      line-height: 1.6;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, p, ul, li { margin: 0; padding: 0; }
+
+    ul { list-style: none; }
+
+    h1, h2, h3 {
+      font-family: var(--sans);
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+
+    p { text-wrap: pretty; hyphens: manual; }
+
+    a { color: var(--navy); }
+
+    a:hover { text-underline-offset: 0.32em; }
+
+    :focus-visible {
+      outline: 2px solid var(--navy);
+      outline-offset: 3px;
+    }
+
+    ::selection {
+      background: var(--navy);
+      color: var(--stone);
+    }
+
+    .skip {
+      position: absolute;
+      left: 1rem;
+      top: 0.75rem;
+      z-index: 20;
+      padding: 0.55rem 0.8rem;
+      background: var(--navy);
+      color: var(--stone);
+      text-decoration: none;
+      transform: translateY(-160%);
+    }
+
+    .skip:focus { transform: none; }
+
+    .wrap {
+      width: min(68rem, calc(100% - 2.5rem));
+      margin-inline: auto;
+    }
+
+    .site {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: var(--stone);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.15rem 1.5rem;
+      padding-block: 0.2rem;
+    }
+
+    .wordmark,
+    nav a {
+      font-family: var(--sans);
+      font-weight: 500;
+      color: var(--navy);
+      text-decoration: underline;
+      text-decoration-color: transparent;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.22em;
+      transition: text-decoration-color var(--ease), text-underline-offset var(--ease);
+    }
+
+    .wordmark {
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: -0.03em;
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.1rem 1.15rem;
+    }
+
+    nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      font-size: 0.92rem;
+      letter-spacing: -0.02em;
+    }
+
+    .wordmark:hover,
+    nav a:hover {
+      text-decoration-color: currentColor;
+      text-underline-offset: 0.38em;
+    }
+
+    .hero { padding: clamp(2.75rem, 7vw, 5.5rem) 0 0; }
+
+    .hero-grid { display: block; }
+
+    .speed {
+      position: relative;
+      height: 0.95rem;
+      margin-top: 1.2rem;
+    }
+
+    .speed span {
+      position: absolute;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      transform: scaleX(0.46);
+      transform-origin: left center;
+    }
+
+    .speed-ochre { top: 0; background: var(--ochre); }
+    .speed-rose { top: 7px; width: 72%; background: var(--rose); }
+
+    .hero-text { grid-column: 1 / -1; }
+
+    h1 {
+      font-weight: 800;
+      font-size: clamp(2.45rem, 7.6vw, 6.5rem);
+      letter-spacing: -0.068em;
+      line-height: 0.84;
+    }
+
+    .studio {
+      display: block;
+      margin-top: 0.7rem;
+      font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+    }
+
+    .lede,
+    .note,
+    .measure { max-width: 38rem; }
+
+    .lede {
+      margin-top: clamp(2.25rem, 5vw, 3.5rem);
+      font-size: clamp(1.125rem, 1.4vw, 1.3rem);
+      line-height: 1.55;
+    }
+
+    .note { margin-top: 1.15rem; }
+
+    .sweep {
+      display: block;
+      width: 100%;
+      height: 4.5rem;
+      margin-top: clamp(2.25rem, 5vw, 3.75rem);
+    }
+
+    .board {
+      display: block;
+      width: 100%;
+      height: 9.5rem;
+      margin-top: 0.25rem;
+    }
+
+    .cred { padding: clamp(1.75rem, 4vw, 2.75rem) 0 clamp(2rem, 4.5vw, 3.25rem); }
+
+    .credentials {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.98rem;
+      letter-spacing: -0.02em;
+    }
+
+    .rule {
+      height: 1px;
+      background: var(--line);
+    }
+
+    .band { padding: clamp(2.75rem, 5.5vw, 4.25rem) 0; }
+
+    h2 {
+      margin-bottom: 0.55rem;
+      font-size: clamp(1.65rem, 3vw, 2.05rem);
+    }
+
+    h3 {
+      margin-bottom: 0.35rem;
+      font-size: 1.2rem;
+      letter-spacing: -0.03em;
+    }
+
+    .status { margin-bottom: 0.15rem; }
+
+    .split {
+      display: grid;
+      gap: 2.25rem;
+    }
+
+    .moves {
+      display: grid;
+      gap: 1.35rem;
+      margin-top: 1.65rem;
+    }
+
+    .card {
+      position: relative;
+      background: var(--card, var(--navy));
+      color: var(--on, var(--stone));
+      padding: 1.35rem 1.3rem 1.5rem;
+      transform-origin: left center;
+      transition: transform var(--ease);
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 1.6rem;
+      height: 5px;
+      background: var(--card);
+      transform: translateY(100%);
+      transition: width var(--ease);
+    }
+
+    .card h2,
+    .card h3 { line-height: 1.15; }
+
+    .card-rose { --card: var(--rose); --on: #FFFFFF; }
+    .card-plum { --card: var(--plum); --on: var(--stone); }
+    .card-ochre { --card: var(--ochre); --on: var(--navy); }
+    .card-violet { --card: var(--violet); --on: var(--stone); }
+    .card-teal { --card: var(--teal); --on: var(--stone); }
+
+    .card:hover {
+      transform: translate3d(0, -6px, 0) skewX(-3deg);
+    }
+
+    .card:hover::after { width: 100%; }
+
+    .board { overflow: visible; }
+
+    .stone {
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    .five-line {
+      fill: none;
+      stroke: var(--ochre);
+      stroke-width: 4;
+      stroke-linecap: square;
+    }
+
+    .alignment {
+      max-width: 40rem;
+      margin-top: clamp(2rem, 4vw, 3rem);
+    }
+
+    .close {
+      display: grid;
+      gap: 2.5rem;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 1.5rem;
+      margin-top: 0.85rem;
+    }
+
+    .links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 1.125rem;
+      letter-spacing: -0.03em;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+      transition: text-underline-offset var(--ease);
+    }
+
+    .forward {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      width: fit-content;
+      min-height: 44px;
+      margin-top: 0.9rem;
+      padding-bottom: 0.12rem;
+      border-bottom: 1px solid var(--navy);
+      color: var(--navy);
+      font-family: var(--sans);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      text-decoration: none;
+      transition: gap var(--ease);
+    }
+
+    .forward svg { display: block; flex: none; }
+
+    .forward:hover { gap: 0.95rem; }
+
+    .sweep-quiet {
+      height: 3rem;
+      margin: 0;
+    }
+
+    .foot {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem 1.5rem;
+      padding: 0.35rem 0 1.75rem;
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    .foot a {
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+      transition: text-underline-offset var(--ease);
+    }
+
+    .story-title {
+      font-weight: 700;
+      font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+      letter-spacing: -0.045em;
+      line-height: 1.08;
+      margin-bottom: 0.45rem;
+    }
+
+    .story-line { max-width: 40rem; }
+
+    .story-grid {
+      display: grid;
+      gap: 1.5rem;
+      margin-top: 1.35rem;
+    }
+
+    .player {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      grid-template-areas:
+        "play year"
+        "slider slider";
+      align-items: center;
+      gap: 0.65rem 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .play {
+      grid-area: play;
+      appearance: none;
+      border: 0;
+      background: var(--navy);
+      color: var(--stone);
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: -0.03em;
+      min-height: 44px;
+      min-width: 6.4rem;
+      padding: 0 1.15rem;
+      cursor: pointer;
+    }
+
+    .play:hover { background: var(--plum); }
+
+    .year-read {
+      grid-area: year;
+      justify-self: end;
+      font-family: var(--sans);
+      font-weight: 800;
+      font-size: clamp(2rem, 6vw, 2.8rem);
+      letter-spacing: -0.06em;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .slider {
+      grid-area: slider;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      min-height: 44px;
+    }
+
+    .yr-end {
+      flex: none;
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .slider input[type="range"] {
+      flex: 1;
+      width: 100%;
+      height: 44px;
+      margin: 0;
+      accent-color: var(--navy);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .chart { --name: 6.7rem; --gap: 0.4rem; }
+
+    .axis {
+      display: grid;
+      gap: 0.28rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .at {
+      display: flex;
+      align-items: baseline;
+      gap: 0.45rem;
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 0.84rem;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+
+    .swatch {
+      flex: none;
+      width: 1.15rem;
+      height: 3px;
+      background: var(--line);
+    }
+
+    .swatch-limits { background: var(--ochre); }
+    .swatch-banned { background: var(--rose); }
+
+    .chart-body { position: relative; }
+
+    .year-mark {
+      position: absolute;
+      z-index: 0;
+      top: 46%;
+      left: calc(var(--name) + var(--gap));
+      width: calc(100% - var(--name) - var(--gap));
+      margin: 0;
+      transform: translateY(-50%);
+      font-family: var(--sans);
+      font-weight: 800;
+      font-size: clamp(3.8rem, 13vw, 10.5rem);
+      letter-spacing: -0.07em;
+      line-height: 0.8;
+      text-align: center;
+      color: var(--navy);
+      opacity: 0.16;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .year-mark.is-tick {
+      animation: year-tick 340ms cubic-bezier(0.22, 1.4, 0.36, 1);
+    }
+
+    @keyframes year-tick {
+      0% { transform: translateY(-40%) scale(0.9); opacity: 0.08; }
+      55% { transform: translateY(-56%) scale(1.07); opacity: 0.24; }
+      100% { transform: translateY(-50%) scale(1); opacity: 0.16; }
+    }
+
+    .caption {
+      max-width: 38rem;
+      margin: 0.85rem 0 0;
+      padding: 0.65rem 0.85rem 0.75rem;
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--rose);
+      background: var(--stone);
+      color: var(--navy);
+      box-shadow: 0 10px 28px rgba(30, 42, 68, 0.08);
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: -0.03em;
+      line-height: 1.35;
+      transform-origin: left center;
+    }
+
+    .caption.is-on { animation: pop-in 340ms cubic-bezier(0.22, 1.45, 0.36, 1) both; }
+    .caption.is-out { animation: pop-out 240ms ease forwards; }
+
+    @keyframes pop-in {
+      from { opacity: 0; transform: translateY(12px) scale(0.94); }
+      62% { transform: translateY(-2px) scale(1.02); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @keyframes pop-out {
+      to { opacity: 0; transform: translateY(8px) scale(0.98); }
+    }
+
+    .trail {
+      position: absolute;
+      z-index: 0;
+      top: 50%;
+      width: 0;
+      height: 0;
+      pointer-events: none;
+    }
+
+    .pulse {
+      position: absolute;
+      z-index: 2;
+      left: 0;
+      top: 0;
+      width: 26px;
+      height: 26px;
+      overflow: visible;
+      pointer-events: none;
+    }
+
+    .guides {
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      bottom: 0;
+      left: calc(var(--name) + var(--gap));
+      width: calc(100% - var(--name) - var(--gap));
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .row {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: var(--name) minmax(0, 1fr);
+      column-gap: var(--gap);
+      align-items: center;
+      min-height: 2.85rem;
+    }
+
+    .place {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 0.92rem;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+    }
+
+    .track { position: relative; height: 2.75rem; }
+
+    .mover {
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 16%;
+      width: 0;
+      height: 0;
+    }
+
+    .mover[hidden] { display: none; }
+
+    .pip {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 22px;
+      height: 22px;
+      transform: translate(-50%, -50%);
+      overflow: visible;
+    }
+
+    .ghost-tag {
+      position: absolute;
+      left: 15px;
+      top: 0;
+      transform: translateY(-50%);
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .beats {
+      display: grid;
+      gap: 0.4rem;
+      margin-top: 0.95rem;
+      max-width: 40rem;
+    }
+
+    .beats:not(:has(.beat:not([hidden]))) { display: none; }
+
+    .beat {
+      margin: 0;
+      padding-left: 0.7rem;
+      border-left: 3px solid var(--ochre);
+      font-size: 0.98rem;
+    }
+
+    #beat-uk { border-left-color: var(--violet); }
+    #beat-sg { border-left-color: var(--teal); }
+
+    .callouts {
+      display: grid;
+      gap: 1.15rem;
+    }
+
+    .callout { border-top: 5px solid var(--ochre); padding-top: 0.7rem; }
+    .callout:nth-child(2) { border-top-color: var(--rose); }
+    .callout:nth-child(3) { border-top-color: var(--teal); }
+
+    .figure {
+      font-family: var(--sans);
+      font-weight: 800;
+      font-size: clamp(2.15rem, 6vw, 3.05rem);
+      letter-spacing: -0.055em;
+      line-height: 0.95;
+      margin-bottom: 0.4rem;
+    }
+
+    .callout p { font-size: 1.02rem; line-height: 1.45; }
+
+    .src {
+      display: inline-block;
+      margin-top: 0.35rem;
+      font-size: 0.88rem;
+    }
+
+    .sources-title {
+      margin-top: 1.35rem;
+      margin-bottom: 0.4rem;
+      font-size: 1.05rem;
+    }
+
+    .cites {
+      max-width: 46rem;
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+
+    .cites li { margin-top: 0.45rem; }
+    .cites li:first-child { margin-top: 0; }
+    .cites a { overflow-wrap: anywhere; }
+
+    .moral {
+      margin-top: 1.6rem;
+      font-family: var(--sans);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    .sr {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    cite { font-style: italic; }
+
+    section { scroll-margin-top: 13.5rem; }
+
+    @media (min-width: 24.375rem) {
+      section { scroll-margin-top: 11rem; }
+    }
+
+    @media (min-width: 40rem) {
+      section { scroll-margin-top: 8rem; }
+    }
+
+    @media (min-width: 56.25rem) {
+      section { scroll-margin-top: 5rem; }
+    }
+
+    @media (min-width: 42rem) {
+      .chart { --name: 9.5rem; }
+      .pip { width: 26px; height: 26px; }
+      .player {
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        grid-template-areas: "play slider year";
+      }
+    }
+
+    @media (min-width: 48rem) {
+      .wrap { width: min(68rem, calc(100% - 4rem)); }
+      .board { height: 13.5rem; }
+      .split { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+      .close { grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+      .callouts { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+    }
+
+    @media (min-width: 64rem) {
+      .story-grid {
+        grid-template-columns: minmax(0, 1fr) 18.5rem;
+        grid-template-areas:
+          "intro intro"
+          "plot call"
+          "sources sources";
+        column-gap: 2.6rem;
+        row-gap: 0.35rem;
+        align-items: start;
+      }
+
+      .story-intro { grid-area: intro; }
+      .story-plot { grid-area: plot; }
+      .callouts { grid-area: call; grid-template-columns: 1fr; align-self: center; }
+      .story-sources { grid-area: sources; }
+
+      .axis {
+        position: relative;
+        display: block;
+        height: 4.4rem;
+        margin: 0 0 0.35rem calc(var(--name) + var(--gap));
+      }
+
+      .at {
+        position: absolute;
+        top: 0;
+        display: block;
+        width: 8.6rem;
+        transform: translateX(-50%);
+        text-align: center;
+      }
+
+      .at-case { left: 16%; }
+      .at-limits { left: 50%; }
+      .at-banned { left: 84%; }
+      .swatch { display: none; }
+    }
+
+    .motion .speed span {
+      transform: scaleX(0);
+      animation: speed 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .motion .speed-rose { animation-delay: 0.1s; }
+
+    .motion .hero-copy h1 {
+      animation: glide 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
+    }
+
+    .motion .hero-text .lede {
+      animation: glide 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.46s both;
+    }
+
+    .motion .hero-text .note {
+      animation: glide 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+    }
+
+    .motion .stone {
+      animation: stone-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .motion .stone:nth-child(1) { animation-delay: 0.15s; }
+    .motion .stone:nth-child(2) { animation-delay: 0.32s; }
+    .motion .stone:nth-child(3) { animation-delay: 0.49s; }
+    .motion .stone:nth-child(4) { animation-delay: 0.66s; }
+    .motion .stone:nth-child(5) { animation-delay: 0.83s; }
+
+    .motion .five-line {
+      stroke-dasharray: 400;
+      stroke-dashoffset: 400;
+      animation: draw-line 0.5s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
+    }
+
+    .motion .card {
+      opacity: 0;
+      transform: translate3d(-28px, 36px, 0);
+    }
+
+    .motion .card.is-in {
+      opacity: 1;
+      transform: none;
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      transition-delay: var(--d, 0ms);
+    }
+
+    .motion .card.is-in:hover {
+      transform: translate3d(0, -6px, 0) skewX(-3deg);
+    }
+
+    @keyframes speed {
+      0% { transform: scaleX(0); }
+      62% { transform: scaleX(1); }
+      100% { transform: scaleX(0.46); }
+    }
+
+    @keyframes glide {
+      from { opacity: 0; transform: translate3d(-40px, 0, 0) skewX(-8deg); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @keyframes stone-in {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @keyframes draw-line {
+      to { stroke-dashoffset: 0; }
+    }
+
+    @media (min-width: 52rem) {
+      .moves { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    }
+
+    @media (forced-colors: active) {
+      .wordmark,
+      nav a { text-decoration-color: CanvasText; }
+
+      .card {
+        background: Canvas;
+        color: CanvasText;
+        border: 1px solid CanvasText;
+        box-shadow: none;
+      }
+
+      .play {
+        background: ButtonFace;
+        color: ButtonText;
+        border: 1px solid ButtonText;
+      }
+
+      .callout { border-top-color: CanvasText; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+      .card:hover,
+      .motion .card,
+      .motion .card.is-in,
+      .motion .card.is-in:hover { transform: none; opacity: 1; }
+    }
+
+    @media print {
+      .site { position: static; }
+      .skip { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="site">
+    <div class="wrap bar">
+      <a class="wordmark" href="#top">Pauline Natalie L.</a>
+      <nav aria-label="Sections">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#workshops">Workshops</a></li>
+          <li><a href="#consulting">Consulting</a></li>
+          <li><a href="#playbooks">Playbooks</a></li>
+          <li><a href="#stories">Stories</a></li>
+          <li><a href="#journal">Journal</a></li>
+          <li><a href="#app">App</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero wrap" id="top" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1 id="hero-title">
+            Pauline Natalie L.
+            <span class="studio">Digital Literacy Studio</span>
+          </h1>
+          <div class="speed" aria-hidden="true">
+            <span class="speed-ochre"></span>
+            <span class="speed-rose"></span>
+          </div>
+        </div>
+        <div class="hero-text">
+          <p class="lede">Writer and educator-builder. I teach thinking, reading and writing in the age of AI, and I build the books, journal and app I teach from.</p>
+          <p class="note">I train the judgement AI can't do for you, using visible thinking routines from Harvard's Project Zero.</p>
+        </div>
+      </div>
+    </section>
+
+    <svg class="sweep" viewBox="0 0 1440 72" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path d="M0 58C480 57 820 48 1080 30C1240 18 1360 10 1440 6" fill="none" stroke="#C9892E" stroke-width="1.75" vector-effect="non-scaling-stroke" stroke-linecap="square"/>
+    </svg>
+
+    <svg class="board" viewBox="0 0 3600 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <path fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="square" shape-rendering="crispEdges" d="M0 70H3600 M0 170H3600 M0 270H3600 M0 0V340 M100 0V340 M200 0V340 M300 0V340 M400 0V340 M500 0V340 M600 0V340 M700 0V340 M800 0V340 M900 0V340 M1000 0V340 M1100 0V340 M1200 0V340 M1300 0V340 M1400 0V340 M1500 0V340 M1600 0V340 M1700 0V340 M1800 0V340 M1900 0V340 M2000 0V340 M2100 0V340 M2200 0V340 M2300 0V340 M2400 0V340 M2500 0V340 M2600 0V340 M2700 0V340 M2800 0V340 M2900 0V340 M3000 0V340 M3100 0V340 M3200 0V340 M3300 0V340 M3400 0V340 M3500 0V340 M3600 0V340"/>
+      <g class="stones">
+        <circle class="stone" cx="1600" cy="170" r="32" fill="#000"/>
+        <circle class="stone" cx="1700" cy="170" r="30.5" fill="#fff" stroke="#000" stroke-width="3"/>
+        <circle class="stone" cx="1800" cy="170" r="32" fill="#000"/>
+        <circle class="stone" cx="1900" cy="170" r="30.5" fill="#fff" stroke="#000" stroke-width="3"/>
+        <circle class="stone" cx="2000" cy="170" r="32" fill="#000"/>
+      </g>
+      <line class="five-line" x1="1600" y1="170" x2="2000" y2="170"/>
+    </svg>
+
+    <div class="wrap cred">
+      <p class="credentials">ACLP · ESSEC · Harvard GSE · Project Zero</p>
+    </div>
+
+    <div class="rule" aria-hidden="true"></div>
+    <section class="band" id="about" aria-labelledby="about-title">
+      <div class="wrap">
+        <h2 id="about-title">About</h2>
+        <p class="measure">My work started in the classroom. I wrote exam writing guides for Singapore students and the General Paper guide <cite>Writing the World</cite>, and I built small tools like Phonics Sonics to test how children learn to read. Building things is how I find out whether an idea really helps a learner. Digital Literacy Studio is where that work lives now.</p>
+      </div>
+    </section>
+
+    <div class="rule" aria-hidden="true"></div>
+    <div class="band">
+      <div class="wrap split">
+        <section class="card card-rose" id="workshops" aria-labelledby="workshops-title">
+          <h2 id="workshops-title">Workshops</h2>
+          <p>For schools and for L&amp;D teams.</p>
+        </section>
+        <section class="card card-plum" id="consulting" aria-labelledby="consulting-title">
+          <h2 id="consulting-title">Consulting</h2>
+          <p>AI in learning, for schools and L&amp;D teams.</p>
+        </section>
+      </div>
+    </div>
+
+    <div class="rule" aria-hidden="true"></div>
+    <section class="band" id="playbooks" aria-labelledby="playbooks-title">
+      <div class="wrap">
+        <h2 id="playbooks-title">The Moves Playbooks</h2>
+        <p class="status">Coming soon on Amazon Kindle.</p>
+        <div class="moves">
+          <article class="card card-ochre" aria-labelledby="story-title">
+            <h3 id="story-title">Story Moves</h3>
+            <p>Ages 10 to 12. Creative thinking.</p>
+          </article>
+          <article class="card card-violet" aria-labelledby="world-title">
+            <h3 id="world-title">World Moves</h3>
+            <p>Ages 16 to 18. Critical thinking.</p>
+          </article>
+          <article class="card card-teal" aria-labelledby="five-title">
+            <h3 id="five-title">Five Moves</h3>
+            <p>Working adults. Strategic thinking.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="rule" aria-hidden="true"></div>
+    <section class="band" id="stories" aria-labelledby="stories-title">
+      <div class="wrap">
+        <h2 id="stories-title">Data stories</h2>
+        <div class="story-grid">
+          <div class="story-intro">
+            <h3 class="story-title" id="clause-title">The clause that follows you when you leave</h3>
+            <p class="story-line">A Five Moves data story on non-compete clauses.</p>
+          </div>
+
+          <div class="story-plot">
+            <div class="player">
+              <button class="play" type="button" id="story-play" aria-pressed="false" aria-controls="story-chart">Replay</button>
+              <div class="slider">
+                <span class="yr-end" aria-hidden="true">2008</span>
+                <input id="story-year" type="range" min="2008" max="2026" step="1" value="2008" aria-label="Year" aria-valuetext="2008">
+                <span class="yr-end" aria-hidden="true">2026</span>
+              </div>
+              <p class="year-read" id="story-readout">2008</p>
+            </div>
+
+            <div class="chart" id="story-chart">
+              <div class="axis" aria-hidden="true">
+                <span class="at at-case"><i class="swatch swatch-case"></i>Courts decide case by case</span>
+                <span class="at at-limits"><i class="swatch swatch-limits"></i>Limits on duration or pay</span>
+                <span class="at at-banned"><i class="swatch swatch-banned"></i>Banned for most workers</span>
+              </div>
+              <div class="chart-body">
+                <p class="year-mark" id="year-mark" aria-hidden="true">2008</p>
+                <svg class="guides" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                  <line x1="16" y1="0" x2="16" y2="100" stroke="#B7B2AA" stroke-width="1.25" vector-effect="non-scaling-stroke"/>
+                  <line x1="50" y1="0" x2="50" y2="100" stroke="#C9892E" stroke-width="1.75" vector-effect="non-scaling-stroke"/>
+                  <line x1="84" y1="0" x2="84" y2="100" stroke="#B0566C" stroke-width="1.75" vector-effect="non-scaling-stroke"/>
+                </svg>
+
+                <div class="row" data-place="oregon">
+                  <p class="place">Oregon<span class="where sr">. Limits on duration or pay.</span></p>
+                  <div class="track">
+                    <span class="mover mover-main" style="left:50%">
+                      <svg class="pip" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="14" fill="#000"/></svg>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="row" data-place="california">
+                  <p class="place">California<span class="where sr">. Banned for most workers.</span></p>
+                  <div class="track">
+                    <span class="mover mover-main" style="left:84%">
+                      <svg class="pip" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="12.4" fill="#fff" stroke="#000" stroke-width="2.5"/></svg>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="row" data-place="us">
+                  <p class="place">United States federal<span class="where sr">. Courts decide case by case.</span></p>
+                  <div class="track">
+                    <span class="mover mover-main" style="left:16%">
+                      <svg class="pip" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="14" fill="#000"/></svg>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="row" data-place="uk">
+                  <p class="place">United Kingdom<span class="where sr">. Courts decide case by case.</span></p>
+                  <div class="track">
+                    <span class="mover mover-main" style="left:16%">
+                      <svg class="pip" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="12.4" fill="#fff" stroke="#000" stroke-width="2.5"/></svg>
+                    </span>
+                    <span class="mover mover-ghost" hidden style="left:50%">
+                      <svg class="pip" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="12.2" fill="#F6F4F1" stroke="#1A1A1A" stroke-width="1.8" stroke-dasharray="2.3 1.9"/></svg>
+                      <span class="ghost-tag">proposed</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="row" data-place="germany">
+                  <p class="place">Germany<span class="where sr">. Limits on duration or pay.</span></p>
+                  <div class="track">
+                    <span class="mover mover-main" style="left:50%">
+                      <svg class="pip" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="14" fill="#000"/></svg>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="row" data-place="singapore">
+                  <p class="place">Singapore<span class="where sr">. Courts decide case by case.</span></p>
+                  <div class="track">
+                    <span class="mover mover-main" style="left:16%">
+                      <svg class="pip" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="12.4" fill="#fff" stroke="#000" stroke-width="2.5"/></svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <p class="caption" id="story-caption" hidden></p>
+
+              <div class="beats">
+                <p class="beat" id="beat-us" hidden></p>
+                <p class="beat" id="beat-uk" hidden></p>
+                <p class="beat" id="beat-sg" hidden></p>
+              </div>
+              <p class="sr" id="story-live" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <aside class="callouts" aria-label="Findings from the research">
+            <article class="callout">
+              <p class="figure" aria-hidden="true">38.1%</p>
+              <p>38.1% of US workers have signed one at some point.</p>
+              <a class="src" href="https://repository.law.umich.edu/cgi/viewcontent.cgi?article=3266&amp;context=facarticles">University of Michigan Law faculty article</a>
+            </article>
+            <article class="callout">
+              <p class="figure" aria-hidden="true">1 in 3</p>
+              <p>1 in 3 saw the clause only after accepting the job.</p>
+              <a class="src" href="https://repository.law.umich.edu/cgi/viewcontent.cgi?article=3266&amp;context=facarticles">University of Michigan Law faculty article</a>
+            </article>
+            <article class="callout">
+              <p class="figure" aria-hidden="true">17%</p>
+              <p>Job moves rose 17% after Oregon's ban.</p>
+              <a class="src" href="https://www.rhsmith.umd.edu/research/how-noncompete-agreements-stifle-workers">University of Maryland research</a>
+            </article>
+          </aside>
+
+          <div class="story-sources">
+            <h3 class="sources-title">Sources</h3>
+            <ul class="cites">
+              <li>Oregon, 2008: bans non-competes for hourly workers.</li>
+              <li>California: banned throughout. Cal. Bus. &amp; Prof. Code 16600.</li>
+              <li>United States federal: an FTC rule in April 2024 would ban non-competes for most workers. A court set the rule aside and the FTC dropped its appeal in September 2025. <a href="https://www.ftc.gov/news-events/news/press-releases/2025/09/federal-trade-commission-files-accede-vacatur-non-compete-clause-rule">FTC press release, September 2025</a>.</li>
+              <li>United Kingdom: in 2023 the government proposed a 3 month cap. It was not passed, so the law stays case by case. The dashed stone marks the proposal. <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1156211/non-compete-government-response.pdf">UK government response on non-compete clauses (PDF)</a>.</li>
+              <li>Germany: limits throughout. The maximum is 24 months, and the employer pays at least 50% of the last salary.</li>
+              <li>Singapore: case by case throughout. In 2023 MOM said employers should avoid these clauses for lower-paying jobs, and promised guidelines. The guidelines had not been issued by March 2026. <a href="https://www.mom.gov.sg/newsroom/parliament-questions-and-replies/2023/0421-written-answer-to-pq-on-inclusion-of-restraint-of-trade-clauses-in-labour-contracts">MOM written answer, 21 April 2023</a>. <a href="https://www.mom.gov.sg/newsroom/parliament-questions-and-replies/2025/0108-written-answer-to-pq-on-tripartite-guidelines-on-restraint-of-trade-clauses">MOM written answer, 8 January 2025</a>.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="moral">First the plot, then the point, then the fine print.</p>
+      </div>
+    </section>
+
+    <div class="rule" aria-hidden="true"></div>
+    <div class="band">
+      <div class="wrap split">
+        <section id="journal" aria-labelledby="journal-title">
+          <h2 id="journal-title">The Moves Playbooks Journal</h2>
+          <p>One journal for Story, World and Five Moves. Coming soon.</p>
+        </section>
+        <section id="app" aria-labelledby="app-title">
+          <h2 id="app-title">Five in a Row</h2>
+          <p>An app for Android. In testing, coming soon.</p>
+        </section>
+      </div>
+      <div class="wrap">
+        <p class="alignment">Aligned with DigComp 3.0, OECD Learning Compass 2030 and PISA 2025.</p>
+      </div>
+    </div>
+
+    <div class="rule" aria-hidden="true"></div>
+    <div class="band">
+      <div class="wrap close">
+        <section id="find" aria-labelledby="find-title">
+          <h2 id="find-title">Find me online</h2>
+          <ul class="links">
+            <li><a rel="me" href="https://www.linkedin.com/in/paulinenatalie">LinkedIn</a></li>
+            <li><a rel="me" href="https://medium.com/@paulynnat">Medium</a></li>
+            <li><a rel="me" href="https://github.com/paulynnat">GitHub</a></li>
+          </ul>
+        </section>
+        <section id="contact" aria-labelledby="contact-title">
+          <h2 id="contact-title">Get in touch</h2>
+          <p class="measure">I welcome a note about workshops or consulting.</p>
+          <a class="forward" rel="me" href="https://www.linkedin.com/in/paulinenatalie">
+            Get in touch via LinkedIn
+            <svg viewBox="0 0 28 12" width="28" height="12" aria-hidden="true" focusable="false">
+              <path d="M0 6h24M18 1l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="square" stroke-linejoin="miter"/>
+            </svg>
+          </a>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <svg class="sweep sweep-quiet" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path d="M0 36C560 35 980 26 1440 8" fill="none" stroke="#B7B2AA" stroke-width="1.25" vector-effect="non-scaling-stroke" stroke-linecap="square"/>
+  </svg>
+
+  <footer>
+    <div class="wrap foot">
+      <p>Pauline Natalie L. · Digital Literacy Studio</p>
+      <p><a href="https://paulynnat.github.io/privacy">Privacy (Five in a Row app)</a></p>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      if (!document.documentElement.classList.contains("motion")) return;
+
+      var cards = document.querySelectorAll(".card");
+      if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-in");
+            io.unobserve(entry.target);
+          });
+        }, { threshold: 0.2, rootMargin: "0px 0px -6% 0px" });
+        cards.forEach(function (card, i) {
+          card.style.setProperty("--d", (i % 3) * 90 + "ms");
+          io.observe(card);
+        });
+      } else {
+        cards.forEach(function (card) { card.classList.add("is-in"); });
+      }
+
+    })();
+
+    (function () {
+      var chart = document.getElementById("story-chart");
+      var playBtn = document.getElementById("story-play");
+      var slider = document.getElementById("story-year");
+      var readout = document.getElementById("story-readout");
+      var live = document.getElementById("story-live");
+      var beatUs = document.getElementById("beat-us");
+      var beatUk = document.getElementById("beat-uk");
+      var beatSg = document.getElementById("beat-sg");
+      var mark = document.getElementById("year-mark");
+      var caption = document.getElementById("story-caption");
+      if (!chart || !playBtn || !slider) return;
+
+      var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var LANE = { case: 16, limits: 50, banned: 84 };
+      var WORD = {
+        case: "Courts decide case by case",
+        limits: "Limits on duration or pay",
+        banned: "Banned for most workers"
+      };
+      var CAPTION = {
+        2008: "Oregon, 2008: bans non-competes for hourly workers.",
+        2023: "United Kingdom: a 3 month cap was proposed in 2023 and was not passed.",
+        2024: "United States federal: an FTC rule in April 2024 would ban non-competes for most workers.",
+        2025: "United States federal: a court set the rule aside and the FTC dropped its appeal in September 2025."
+      };
+      var runId = 0;
+      var year = 2008;
+      var playing = false;
+      var playedOnce = false;
+      var userTookOver = false;
+      var capTimer = 0;
+      var ghostWas = false;
+
+      function lane(id, y) {
+        if (id === "oregon" || id === "germany") return "limits";
+        if (id === "california") return "banned";
+        if (id === "us") return y === 2024 ? "banned" : "case";
+        return "case";
+      }
+
+      function holdFor(y) {
+        if (y === 2008) return 1000;
+        if (y === 2023) return 1450;
+        if (y === 2024 || y === 2025) return 1550;
+        if (y === 2026) return 800;
+        return 520;
+      }
+
+      function clearMotion() {
+        chart.querySelectorAll(".trail, .pulse").forEach(function (node) { node.remove(); });
+        chart.querySelectorAll(".mover, .pip").forEach(function (node) {
+          node.getAnimations().forEach(function (anim) { anim.cancel(); });
+        });
+      }
+
+      function hideCaption() {
+        window.clearTimeout(capTimer);
+        if (!caption) return;
+        caption.classList.remove("is-on", "is-out");
+        caption.hidden = true;
+        caption.textContent = "";
+      }
+
+      function showCaption(text, life) {
+        if (!caption) return;
+        window.clearTimeout(capTimer);
+        caption.hidden = false;
+        caption.textContent = text;
+        caption.classList.remove("is-out");
+        caption.classList.remove("is-on");
+        if (!reduce) {
+          void caption.offsetWidth;
+          caption.classList.add("is-on");
+        }
+        capTimer = window.setTimeout(function () {
+          if (reduce) {
+            caption.hidden = true;
+            return;
+          }
+          caption.classList.remove("is-on");
+          caption.classList.add("is-out");
+          window.setTimeout(function () {
+            if (caption.classList.contains("is-out")) caption.hidden = true;
+          }, 240);
+        }, Math.max(420, life - 280));
+      }
+
+      function tickYear(y, animate) {
+        if (!mark) return;
+        mark.textContent = String(y);
+        if (!animate || reduce) return;
+        mark.classList.remove("is-tick");
+        void mark.offsetWidth;
+        mark.classList.add("is-tick");
+      }
+
+      function spawnTrail(track, pip, spot, i) {
+        var trail = document.createElement("span");
+        trail.className = "trail";
+        trail.style.left = spot + "%";
+        trail.setAttribute("aria-hidden", "true");
+        trail.appendChild(pip.cloneNode(true));
+        track.appendChild(trail);
+        trail.animate([
+          { opacity: 0.55 - i * 0.06 },
+          { opacity: 0 }
+        ], { duration: 760, delay: i * 28, easing: "ease-out", fill: "forwards" }).onfinish = function () {
+          trail.remove();
+        };
+      }
+
+      function dropTrail(track, pip, fromN, toN) {
+        if (reduce || fromN === toN) return;
+        var steps = 6;
+        for (var i = 0; i < steps; i++) {
+          spawnTrail(track, pip, fromN + (toN - fromN) * (i / steps), i);
+        }
+      }
+
+      function pulse(mover) {
+        if (reduce) return;
+        var ring = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        ring.setAttribute("class", "pulse");
+        ring.setAttribute("viewBox", "0 0 32 32");
+        ring.setAttribute("aria-hidden", "true");
+        var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        circle.setAttribute("cx", "16");
+        circle.setAttribute("cy", "16");
+        circle.setAttribute("r", "12");
+        circle.setAttribute("fill", "none");
+        circle.setAttribute("stroke", "#B0566C");
+        circle.setAttribute("stroke-width", "2");
+        ring.appendChild(circle);
+        mover.appendChild(ring);
+        ring.animate([
+          { transform: "translate(-50%, -50%) scale(0.65)", opacity: 0.95 },
+          { transform: "translate(-50%, -50%) scale(2.2)", opacity: 0 }
+        ], { duration: 640, easing: "cubic-bezier(0.16, 0.84, 0.32, 1)", fill: "forwards" }).onfinish = function () {
+          ring.remove();
+        };
+      }
+
+      function bounce(pip) {
+        if (reduce || !pip) return;
+        pip.animate([
+          { transform: "translate(-50%, -50%) scale(1)", offset: 0 },
+          { transform: "translate(-50%, -50%) scale(0.78)", offset: 0.16 },
+          { transform: "translate(-50%, -50%) scale(1.24)", offset: 0.48 },
+          { transform: "translate(-50%, -50%) scale(0.94)", offset: 0.74 },
+          { transform: "translate(-50%, -50%) scale(1.06)", offset: 0.88 },
+          { transform: "translate(-50%, -50%) scale(1)", offset: 1 }
+        ], { duration: 620, easing: "linear" });
+      }
+
+      function springTo(mover, fromN, toN) {
+        mover.getAnimations().forEach(function (anim) { anim.cancel(); });
+        mover.style.left = toN + "%";
+        if (reduce) return;
+        var dir = toN > fromN ? 1 : -1;
+        var back = Math.max(6, Math.min(94, fromN - dir * 3.4));
+        var over = Math.max(6, Math.min(94, toN + dir * 5.2));
+        mover.animate([
+          { left: fromN + "%", offset: 0 },
+          { left: back + "%", offset: 0.14 },
+          { left: over + "%", offset: 0.66 },
+          { left: toN + "%", offset: 1 }
+        ], { duration: 500, easing: "cubic-bezier(0.2, 0.9, 0.24, 1)" });
+      }
+
+      function placeMover(mover, toN, animate) {
+        var fromN = parseFloat(mover.style.left);
+        var pip = mover.querySelector(".pip");
+        var track = mover.parentNode;
+        var changed = !isNaN(fromN) && Math.abs(fromN - toN) >= 0.5;
+        if (animate && changed) {
+          dropTrail(track, pip, fromN, toN);
+          springTo(mover, fromN, toN);
+          bounce(pip);
+          pulse(mover);
+        } else {
+          mover.getAnimations().forEach(function (anim) { anim.cancel(); });
+          mover.style.left = toN + "%";
+        }
+        return changed;
+      }
+
+      function summary(y) {
+        var bits = ["Year " + y];
+        bits.push("Oregon, " + WORD.limits);
+        bits.push("California, " + WORD.banned);
+        bits.push("United States federal, " + WORD[lane("us", y)]);
+        bits.push("United Kingdom, " + WORD.case);
+        if (y >= 2023) bits.push("United Kingdom proposal at " + WORD.limits + ", not passed");
+        bits.push("Germany, " + WORD.limits);
+        bits.push("Singapore, " + WORD.case);
+        if (y >= 2023) bits.push("Singapore: MOM says avoid for lower-paying jobs. Guidelines not yet issued by March 2026");
+        return bits.join(". ") + ".";
+      }
+
+      function render(y, announce, animate) {
+        year = y;
+        slider.value = String(y);
+        slider.setAttribute("aria-valuetext", String(y));
+        readout.textContent = String(y);
+        tickYear(y, animate);
+
+        chart.querySelectorAll(".row").forEach(function (row) {
+          var id = row.getAttribute("data-place");
+          var key = lane(id, y);
+          var mover = row.querySelector(".mover-main");
+          var where = row.querySelector(".where");
+          if (mover) placeMover(mover, LANE[key], animate);
+          if (where) where.textContent = ". " + WORD[key] + ".";
+        });
+
+        var ghost = chart.querySelector(".mover-ghost");
+        var ukWhere = chart.querySelector('[data-place="uk"] .where');
+        var ghostOn = y >= 2023;
+        if (ghostOn) {
+          ghost.hidden = false;
+          ghost.style.left = LANE.limits + "%";
+          if (animate && !ghostWas) {
+            bounce(ghost.querySelector(".pip"));
+            pulse(ghost);
+          }
+          if (ukWhere) {
+            ukWhere.textContent = ". Courts decide case by case. A 3 month cap was proposed in 2023 and was not passed.";
+          }
+        } else if (ghost) {
+          ghost.hidden = true;
+        }
+        ghostWas = ghostOn;
+
+        if (y === 2024) {
+          beatUs.hidden = false;
+          beatUs.textContent = CAPTION[2024];
+        } else if (y >= 2025) {
+          beatUs.hidden = false;
+          beatUs.textContent = CAPTION[2025];
+        } else {
+          beatUs.hidden = true;
+          beatUs.textContent = "";
+        }
+
+        if (y >= 2023) {
+          beatUk.hidden = false;
+          beatUk.textContent = CAPTION[2023];
+          beatSg.hidden = false;
+          beatSg.textContent = "Singapore, 2023: MOM says avoid these clauses for lower-paying jobs. Guidelines were promised and had not been issued by March 2026.";
+        } else {
+          beatUk.hidden = true;
+          beatUk.textContent = "";
+          beatSg.hidden = true;
+          beatSg.textContent = "";
+        }
+
+        if (playing && CAPTION[y]) showCaption(CAPTION[y], holdFor(y));
+        else if (!playing) hideCaption();
+
+        if (announce && (CAPTION[y] || y === 2026 || !animate)) {
+          live.textContent = CAPTION[y] ? ("Year " + y + ". " + CAPTION[y]) : summary(y);
+        }
+      }
+
+      function stop() {
+        runId += 1;
+        playing = false;
+        playBtn.setAttribute("aria-pressed", "false");
+      }
+
+      function playFrom(start) {
+        var run = ++runId;
+        playing = true;
+        playBtn.setAttribute("aria-pressed", "true");
+        clearMotion();
+        ghostWas = false;
+        render(start, true, !reduce);
+        function step() {
+          if (run !== runId) return;
+          window.setTimeout(function () {
+            if (run !== runId) return;
+            if (year >= 2026) {
+              stop();
+              return;
+            }
+            render(year + 1, true, !reduce);
+            step();
+          }, holdFor(year));
+        }
+        step();
+      }
+
+      playBtn.addEventListener("click", function () {
+        userTookOver = true;
+        stop();
+        chart.classList.remove("is-scrub");
+        playFrom(2008);
+      });
+
+      slider.addEventListener("input", function () {
+        userTookOver = true;
+        stop();
+        clearMotion();
+        hideCaption();
+        chart.classList.add("is-scrub");
+        render(Number(slider.value), false, false);
+      });
+
+      slider.addEventListener("change", function () {
+        chart.classList.remove("is-scrub");
+        render(Number(slider.value), true, false);
+      });
+
+      document.addEventListener("visibilitychange", function () {
+        if (document.hidden) stop();
+      });
+
+      render(2008, false, false);
+
+      if (!reduce && "IntersectionObserver" in window) {
+        var plot = document.querySelector(".story-plot") || chart;
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting || playedOnce || userTookOver || playing) return;
+            playedOnce = true;
+            io.disconnect();
+            playFrom(2008);
+          });
+        }, { threshold: 0.4 });
+        io.observe(plot);
+      }
+    })();
+  </script>
+</body>
+</html>
